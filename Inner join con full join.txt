@@ -1,0 +1,419 @@
+
+Setting environment for using XAMPP for Windows.
+DANIEL GARAVITO@ALEJO c:\xampp
+#
+DANIEL GARAVITO@ALEJO c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.27-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create databases Empresa;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databases Empresa' at line 1
+MariaDB [(none)]> create database Empresa;
+ERROR 1007 (HY000): Can't create database 'empresa'; database exists
+MariaDB [(none)]> create database Empresa
+    ->
+    ->
+    -> Bye
+
+DANIEL GARAVITO@ALEJO c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.27-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database Empresa;
+ERROR 1007 (HY000): Can't create database 'empresa'; database exists
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| academia           |
+| biblioteca         |
+| consesionario      |
+| empresa            |
+| information_schema |
+| kamjac             |
+| libros             |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| tienda             |
+| univerisdad        |
++--------------------+
+13 rows in set (0.138 sec)
+
+MariaDB [(none)]> create database Colegio;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use Colegio;
+Database changed
+MariaDB [Colegio]> create table Cliente (Id_Cliente varchar(20),Nombres varchar(60), Apellidos varchar (60),FechaNto date,Edad tinyint(3));
+Query OK, 0 rows affected (0.238 sec)
+
+MariaDB [Colegio]> describe Cliente;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Id_Cliente | varchar(20) | YES  |     | NULL    |       |
+| Nombres    | varchar(60) | YES  |     | NULL    |       |
+| Apellidos  | varchar(60) | YES  |     | NULL    |       |
+| FechaNto   | date        | YES  |     | NULL    |       |
+| Edad       | tinyint(3)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.009 sec)
+
+MariaDB [Colegio]> alter table Cliente add rpimary key(Id_Cliente);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'key(Id_Cliente)' at line 1
+MariaDB [Colegio]> alter table Cliente add primary key(Id_Cliente);
+Query OK, 0 rows affected (0.442 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Colegio]> describe Cliente;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Id_Cliente | varchar(20) | NO   | PRI | NULL    |       |
+| Nombres    | varchar(60) | YES  |     | NULL    |       |
+| Apellidos  | varchar(60) | YES  |     | NULL    |       |
+| FechaNto   | date        | YES  |     | NULL    |       |
+| Edad       | tinyint(3)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.011 sec)
+
+MariaDB [Colegio]> insert into Cliente values ("1101991097", "Andres Antonio","Gomez Quintana", "2000-10-14")
+    -> insert into Cliente values ("1101991097", "Andres Antonio","Gomez Quintana", "2000-10-14");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'insert into Cliente values ("1101991097", "Andres Antonio","Gomez Quintana", ...' at line 2
+MariaDB [Colegio]> insert into Cliente values ("1101991097", "Andres Antonio","Gomez Quintana", "2000-10-14","5");
+Query OK, 1 row affected (0.300 sec)
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos      | FechaNto   | Edad |
++------------+----------------+----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana | 2000-10-14 |    5 |
++------------+----------------+----------------+------------+------+
+1 row in set (0.000 sec)
+
+MariaDB [Colegio]> insert into Cliente values ("1548133278", "Maycol Felipe","Casillas Mendez", "2002-01-25","9");
+Query OK, 1 row affected (0.092 sec)
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad |
++------------+----------------+-----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |    5 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |    9 |
++------------+----------------+-----------------+------------+------+
+2 rows in set (0.000 sec)
+
+MariaDB [Colegio]> insert into Cliente values ("1465782014", "Marco Federico","Perez Jaramillo", "2000-05-30","10");
+Query OK, 1 row affected (0.116 sec)
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad |
++------------+----------------+-----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |    5 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   10 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |    9 |
++------------+----------------+-----------------+------------+------+
+3 rows in set (0.000 sec)
+
+MariaDB [Colegio]> insert into Cliente values ("1248769810", "Dusan Jose","Hortua Manzilla", "2010-02-10","");
+Query OK, 1 row affected, 1 warning (0.237 sec)
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad |
++------------+----------------+-----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |    5 |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |    0 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   10 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |    9 |
++------------+----------------+-----------------+------------+------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> insert into Cliente values ("1465782014", "Marco Federico","Perez Jaramillo", "2000-05-30",);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [Colegio]> insert into Cliente values ("1465782014", "Marco Federico","Perez Jaramillo", "2000-05-30");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [Colegio]> select * from Cliente where Edad IS NULL;
+Empty set (0.001 sec)
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad |
++------------+----------------+-----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |    5 |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |    0 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   10 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |    9 |
++------------+----------------+-----------------+------------+------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> update Cliente set Edad=Null;
+Query OK, 4 rows affected (0.116 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad |
++------------+----------------+-----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 | NULL |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 | NULL |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 | NULL |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 | NULL |
++------------+----------------+-----------------+------------+------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> update Cliente set Edad=Null where Id_Cliente="1101991097";
+Query OK, 0 rows affected (0.000 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+MariaDB [Colegio]> update Cleinte set Edad=(year(current_date)-year(FechaNto))-(rigth(current_date,5)<rigth(FechaNto,5));
+ERROR 1146 (42S02): Table 'colegio.cleinte' doesn't exist
+MariaDB [Colegio]> update Cliente set Edad=(year(current_date)-year(FechaNto))-(rigth(current_date,5)<rigth(FechaNto,5));
+ERROR 1305 (42000): FUNCTION colegio.rigth does not exist
+MariaDB [Colegio]> update Cleinte set Edad=(year(current_date)-year(FechaNto))-(right(current_date,5)<right(FechaNto,5));
+ERROR 1146 (42S02): Table 'colegio.cleinte' doesn't exist
+MariaDB [Colegio]> update Cliente set Edad=(year(current_date)-year(FechaNto))-(right(current_date,5)<right(FechaNto,5));
+Query OK, 4 rows affected (0.077 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad |
++------------+----------------+-----------------+------------+------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |   22 |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |   13 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   22 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |   21 |
++------------+----------------+-----------------+------------+------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> create table empresa (Id_Empresa varchar(20) ,Nombre_Empresa varchar(60));
+Query OK, 0 rows affected (0.487 sec)
+
+MariaDB [Colegio]> insert into empresa values("1204987
+    "> insert into empresa values("1204987725","Terpel");
+    "> Bye
+
+DANIEL GARAVITO@ALEJO c:\xampp
+# mysql -u root -p
+Enter password: *
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+DANIEL GARAVITO@ALEJO c:\xampp
+#
+DANIEL GARAVITO@ALEJO c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.27-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use Colegio;
+Database changed
+MariaDB [Colegio]> insert into empresa values("1204987725","Terpel");
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [Colegio]> insert into empresa values("1024986475","OXXO");
+Query OK, 1 row affected (0.106 sec)
+
+MariaDB [Colegio]> insert into empresa values("1854617942","Bavaria");
+Query OK, 1 row affected (0.081 sec)
+
+MariaDB [Colegio]> SELECT * FROM Cliente full join empresa on Id_Cliente= Id_Empresa;
+Empty set (0.071 sec)
+
+MariaDB [Colegio]> drop table empresa;
+Query OK, 0 rows affected (0.164 sec)
+
+MariaDB [Colegio]> SELECT * FROM empresa;
+ERROR 1146 (42S02): Table 'colegio.empresa' doesn't exist
+MariaDB [Colegio]> create table empresa (Id_Empresa varchar(20) ,Nombre_Empresa varchar(60));
+Query OK, 0 rows affected (0.300 sec)
+
+MariaDB [Colegio]> insert into empresa values("1101991097","Terpel");
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [Colegio]> insert into empresa values("1248769810","OXXO");
+Query OK, 1 row affected (0.095 sec)
+
+MariaDB [Colegio]> insert into empresa values("1465782014","Ecopetrol");
+Query OK, 1 row affected (0.108 sec)
+
+MariaDB [Colegio]> insert into empresa values("1548133278","Bavaria");
+Query OK, 1 row affected (0.100 sec)
+
+MariaDB [Colegio]> SELECT * FROM Cliente full join empresa on Id_Cliente= Id_Empresa;
++------------+----------------+-----------------+------------+------+------------+----------------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad | Id_Empresa | Nombre_Empresa |
++------------+----------------+-----------------+------------+------+------------+----------------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |   22 | 1101991097 | Terpel         |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |   13 | 1248769810 | OXXO           |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   22 | 1465782014 | Ecopetrol      |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |   21 | 1548133278 | Bavaria        |
++------------+----------------+-----------------+------------+------+------------+----------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> describe Cliente;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Id_Cliente | varchar(20) | NO   | PRI | NULL    |       |
+| Nombres    | varchar(60) | YES  |     | NULL    |       |
+| Apellidos  | varchar(60) | YES  |     | NULL    |       |
+| FechaNto   | date        | YES  |     | NULL    |       |
+| Edad       | tinyint(3)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.009 sec)
+
+MariaDB [Colegio]> describe empresa;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| Id_Empresa     | varchar(20) | YES  |     | NULL    |       |
+| Nombre_Empresa | varchar(60) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.009 sec)
+
+MariaDB [Colegio]> select Id_Cliente,Nombres,Apellidos,Id_Empresa,Nombre_Empresa from cliente full join empresa on Id_Cliente=Id_Empresa;
++------------+----------------+-----------------+------------+----------------+
+| Id_Cliente | Nombres        | Apellidos       | Id_Empresa | Nombre_Empresa |
++------------+----------------+-----------------+------------+----------------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 1101991097 | Terpel         |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 1248769810 | OXXO           |
+| 1465782014 | Marco Federico | Perez Jaramillo | 1465782014 | Ecopetrol      |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 1548133278 | Bavaria        |
++------------+----------------+-----------------+------------+----------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> alter table empresa add Primaty key(Id_Empresa);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'key(Id_Empresa)' at line 1
+MariaDB [Colegio]> alter table empresa add Primary key(Id_Empresa);
+Query OK, 0 rows affected (0.644 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Colegio]> describe empresa;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| Id_Empresa     | varchar(20) | NO   | PRI | NULL    |       |
+| Nombre_Empresa | varchar(60) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.008 sec)
+
+MariaDB [Colegio]> select * from empresa;
++------------+----------------+
+| Id_Empresa | Nombre_Empresa |
++------------+----------------+
+| 1101991097 | Terpel         |
+| 1248769810 | OXXO           |
+| 1465782014 | Ecopetrol      |
+| 1548133278 | Bavaria        |
++------------+----------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> alter table Cliente ADD COLUMN Id_Empresa varchar(20);
+Query OK, 0 rows affected (0.152 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+------------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad | Id_Empresa |
++------------+----------------+-----------------+------------+------+------------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |   22 | NULL       |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |   13 | NULL       |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   22 | NULL       |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |   21 | NULL       |
++------------+----------------+-----------------+------------+------+------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> update Cliente set Id_Empresa="1101991097";
+Query OK, 4 rows affected (0.087 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+------------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad | Id_Empresa |
++------------+----------------+-----------------+------------+------+------------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |   22 | 1101991097 |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |   13 | 1101991097 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   22 | 1101991097 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |   21 | 1101991097 |
++------------+----------------+-----------------+------------+------+------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> select Id_Cliente, Nombres, Apellidos, Nombre_Empresa from Cliente full join empresa Id_Cliente=Id_Empresa;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '=Id_Empresa' at line 1
+MariaDB [Colegio]> select Id_Cliente, Nombres, Apellidos, Nombre_Empresa from Cliente full join empresa on Id_Cliente=Id_Empresa;
+ERROR 1052 (23000): Column 'Id_Empresa' in on clause is ambiguous
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+------------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad | Id_Empresa |
++------------+----------------+-----------------+------------+------+------------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |   22 | 1101991097 |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |   13 | 1101991097 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   22 | 1101991097 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |   21 | 1101991097 |
++------------+----------------+-----------------+------------+------+------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> select * from empresa;
++------------+----------------+
+| Id_Empresa | Nombre_Empresa |
++------------+----------------+
+| 1101991097 | Terpel         |
+| 1248769810 | OXXO           |
+| 1465782014 | Ecopetrol      |
+| 1548133278 | Bavaria        |
++------------+----------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> update Cliente set Id_Empresa="1465782014" where Id_Cliente="1465782014" or Id_Cliente="1548133278";
+Query OK, 2 rows affected (0.113 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [Colegio]> select * from Cliente;
++------------+----------------+-----------------+------------+------+------------+
+| Id_Cliente | Nombres        | Apellidos       | FechaNto   | Edad | Id_Empresa |
++------------+----------------+-----------------+------------+------+------------+
+| 1101991097 | Andres Antonio | Gomez Quintana  | 2000-10-14 |   22 | 1101991097 |
+| 1248769810 | Dusan Jose     | Hortua Manzilla | 2010-02-10 |   13 | 1101991097 |
+| 1465782014 | Marco Federico | Perez Jaramillo | 2000-05-30 |   22 | 1465782014 |
+| 1548133278 | Maycol Felipe  | Casillas Mendez | 2002-01-25 |   21 | 1465782014 |
++------------+----------------+-----------------+------------+------+------------+
+4 rows in set (0.000 sec)
+
+MariaDB [Colegio]> select Cliente.Nombres, Cliente.Apellidos, empresa.Nombre_Empresa
+    -> from empresa inner join Cliente
+    -> on Empresa.Id_Empresa=Cliente.Id_Empresa;
++----------------+-----------------+----------------+
+| Nombres        | Apellidos       | Nombre_Empresa |
++----------------+-----------------+----------------+
+| Andres Antonio | Gomez Quintana  | Terpel         |
+| Dusan Jose     | Hortua Manzilla | Terpel         |
+| Marco Federico | Perez Jaramillo | Ecopetrol      |
+| Maycol Felipe  | Casillas Mendez | Ecopetrol      |
++----------------+-----------------+----------------+
+4 rows in set (0.042 sec)
+
+MariaDB [Colegio]>
