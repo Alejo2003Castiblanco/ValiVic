@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <form class="formu"action="" method="post" onsubmit="return validar()">
+    <form class="formu"action="" method="get" onsubmit="return validacion()">
         <h2 class="ter">Destino donde desea viajar: </h2>
+        <fieldset class="erto">
         <div class="alej">
         <select name="ciudad" id="ciudad">
         <option class="erto" value="">Por favor sleccione su ciudad de Destino</option>
@@ -25,11 +26,28 @@
         <option class="erto" value="Ninguna">Ninguno de los planes de viaje me interesa</option>
         </select>    
         </div>
+        </fieldset><br>
+        <fieldset class="erto">
         <div class="alej">
         <label for="Correo">Correo Electrónico: </label>
         <input type="email" id="Correo" name="CorreoE" />
-        <input type="submit" value="Validar" onclick="return ValidarCorreoElectronico()" />
         </div>
+        </fieldset><br> 
+        <fieldset class="erto">
+        <div>
+            <legend>Por favor sleccione su genero</legend>
+            <input type="radio" name="gen"> <label for="mas">Masculino</label> 
+            <input type="radio" name="gen"> <label for="fem">Femenino</label> 
+            <input type="radio" name="gen"> <label for="per">Personalizado</label>
+        </div>
+        </fieldset><br> 
+        <fieldset class="erto">
+            <input type="date">FECHA DE NACIMINETO</input>
+        </fieldset>
+        <div class="cinco"> 
+            <button><a class="dropdown-item">Comprar</button></a>
+        </div>
+        
     </form>
 </body>
 </html>

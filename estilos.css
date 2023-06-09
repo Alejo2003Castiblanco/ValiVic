@@ -12,10 +12,15 @@ body{
     border: 10px;
     border-style: inset;
     width: 450px;
-    height: 320px;
-    border-radius: 10% / 50%;
+    height: 400px;
+    border-radius: 10% / 300%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.parrafo{
+    text-align: center;
+    color: black;
 }
 
 .erto{
