@@ -68,3 +68,14 @@ function validacion(){
         return false;
     }
 }
+
+function mostar(input){
+    var img=document.getElementById("img")
+    if(input.value =="Ocultar"){
+        img.style.visibility="hidden";
+        input.value="Mostrar"
+    }else{
+        img.style.visibility="Visible"
+        input.value="Ocultar"
+    }
+}
