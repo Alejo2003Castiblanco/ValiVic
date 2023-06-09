@@ -1,5 +1,5 @@
 body{
-    background: url(logo.jpg);
+    background: url(para.jpg);
     background-size: cover;
 }
 
@@ -11,9 +11,25 @@ body{
     border-color: blue;
     border: 10px;
     border-style: inset;
-    width: 450px;
-    height: 500px;
+    width: 500px;
+    height: 550px;
     border-radius: 10% / 300%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: brown;
+}
+
+.formua{
+    float: right;
+    background-color: rgba(255, 255, 255, 0.144);
+    border-style: solid;
+    border-width: thin;
+    border-color: blue;
+    border: 10px;
+    border-style: inset;
+    width: 400px;
+    height: 350px;
+    border-radius: 10% / 50%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }

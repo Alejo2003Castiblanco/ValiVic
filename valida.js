@@ -32,7 +32,15 @@ function validar(){
     
 
 function validacion(){
+    var canti =document.getElementById('peso');
     var men = document.getElementById("ciudad");
+    var contador=0;
+    var ElCorreo = document.getElementById('Correo');
+    if(canti.value <=0 || canti.value >50){
+        alert("Por favor ingrese un peso valido")
+    }
+
+    
     if(men.value == null || men.value == ""){
         alert("Por favor seleccione su destino de viaje");
         document.getElementById("ciudad")
@@ -40,8 +48,7 @@ function validacion(){
     } else{
         document.getElementById("ciudad")
     }
-var contador=0;
-var genero=document.getElementsByName("gen")
+
     for(i=0; i<genero.length;i++){
         if(genero.item(i).checked==false){
             contador=contador+1;
@@ -51,10 +58,6 @@ var genero=document.getElementsByName("gen")
         alert("Por favor seleccione su genero")
         return false;
     }
-  
-    //Se Captura Dirección del campo Correo
-    var ElCorreo = document.getElementById('Correo');
-    
     var ValidaCorreos = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
     if( ValidaCorreos.test(ElCorreo.value) ){
