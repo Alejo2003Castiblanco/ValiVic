@@ -12,48 +12,58 @@
     <form class="formu" action="" method="POST" onsubmit="return validacion()">
         <h2 class="ter">Destino donde desea viajar: </h2>
         <fieldset class="erto">
-        <div class="alej">
-        <select name="ciudad" id="ciudad">
-        <option class="erto" value="">Por favor sleccione su ciudad de Destino</option>
-        <option class="erto" value="Bogota-Cali">Bogotá - Cali</option>
-        <option class="erto" value="Bogota-Medellin">Bogotá - Medellín</option>
-        <option class="erto" value="Bogota-Manizales">Bogotá - Manizales</option>
-        <option class="erto" value="Bogota-Barranquilla">Bogotá - Barranquilla</option>
-        <option class="erto" value="Cali-Bogota">Cali - Bogotá</option>
-        <option class="erto" value="Medeillin-Bogota">Medellín - Bogotá</option>
-        <option class="erto" value="Manizales-Bogota">Manizales - Bogotá</option>
-        <option class="erto" value="Barranquilla-Bogota">Barranquilla - Bogotá</option>
-        <option class="erto" value="Ninguna">Ninguno de los planes de viaje me interesa</option>
-        </select>    
-        </div>
+            <legend>Por favor seleccione su destino de viaje</legend>
+            <div class="alej">
+                <select name="ciudad" id="ciudad">
+                <option class="erto" value="">---------------</option>
+                <option class="erto" value="Bogota-Cali">Bogotá - Cali</option>
+                <option class="erto" value="Bogota-Medellin">Bogotá - Medellín</option>
+                <option class="erto" value="Bogota-Manizales">Bogotá - Manizales</option>
+                <option class="erto" value="Bogota-Barranquilla">Bogotá - Barranquilla</option>
+                <option class="erto" value="Cali-Bogota">Cali - Bogotá</option>
+                <option class="erto" value="Medeillin-Bogota">Medellín - Bogotá</option>
+                <option class="erto" value="Manizales-Bogota">Manizales - Bogotá</option>
+                <option class="erto" value="Barranquilla-Bogota">Barranquilla - Bogotá</option>
+                <option class="erto" value="Ninguna">Bogota - Islas Malvidias</option>
+                </select>    
+            </div>
         </fieldset><br>
         <fieldset class="erto">
-        <div class="alej">
-        <label for="Correo">Correo Electrónico: </label>
-        <input type="email" id="Correo" name="CorreoE" placeholder="example@gmail.com"/>
-        </div>
+            <legend>Por favor ingrese su correo electronico</legend>
+            <div class="alej">
+                <label for="Correo">Correo Electrónico: </label>
+                <input type="email" id="Correo" name="CorreoE" placeholder="example@gmail.com"/>
+            </div>
         </fieldset><br> 
         <fieldset class="erto">
-        <div>
-            <legend>Por favor sleccione su genero</legend>
-            <input type="radio" name="gen"> <label for="mas">Masculino</label> 
-            <input type="radio" name="gen"> <label for="fem">Femenino</label> 
-            <input type="radio" name="gen"> <label for="per">Personalizado</label>
-        </div>
+            <legend>Por favor seleccione su genero</legend>
+            <div>
+                <input type="radio" name="gen"> <label for="mas">Masculino</label> 
+                <input type="radio" name="gen"> <label for="fem">Femenino</label> 
+                <input type="radio" name="gen"> <label for="per">Personalizado</label>
+            </div>
         </fieldset><br> 
         <fieldset class="erto">
-            <input type="date" name="fecha">FECHA DE NACIMINETO</input>
+            <legend>Por favor seleccione su fecha de nacimiento</legend>
+            <input type="date" name="fecha"></input>
         </fieldset><br>
         <fieldset class="erto">
+            <legend>Por favor ingrese el peso del equipaje Maximo 50 KG</legend>
             <div class="cuatro">
                 <label for="peso"></label>
                 <input type="text" id="peso" name="peso" placeholder="Peso del equipaje" required>
             </div>
+        </fieldset><br>
+        <fieldset class="erto">
+            <legend>Por favor ingrese su dirección de residencia</legend>
+            <label for="direc"></label>
+            <input type="text" id="dire" name="dire" placeholder="Dirección de residencia" required>
         </fieldset>
         <div class="cinco"> 
             <button><a class="dropdown-item">Comprar</button></a>
         </div>
         
     </form>
+    
 </body>
 </html>
