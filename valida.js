@@ -48,7 +48,7 @@ var genero=document.getElementsByName("gen")
         }
     }
     if(contador==genero.length){
-        alert("Por favor seleccione su opinión")
+        alert("Por favor seleccione su genero")
         return false;
     }
   
@@ -61,7 +61,7 @@ var genero=document.getElementsByName("gen")
         alert('Correo Electrónico Válido');
         return true;
     }else{
-        alert('Correo Electrónico Inválido');
+        alert('Por favor ingrese un correo electronico valido');
         return false;
     }
 }
